@@ -1,6 +1,16 @@
 #include "Player.h"
 #include <SDL.h>
 
+
+Player::Player() : GameObject() {
+//	 _transform.position = { 400.0f, 400.0f, 0.0f };
+	 _transform.position.x = 400.0f; _transform.position.y = 400.0f; _transform.position.z = 0.0f; 
+}
+
+Player::~Player() {
+
+}
+
 void Player::Initialize() {
 
 }
@@ -10,8 +20,9 @@ void Player::Update(float dt) {
 }
 
 void Player::Draw(SDL_Renderer *renderer, float dt) {
-	SDL_RenderDrawLine(renderer, 200, 200, 400, 500);
+	SDL_RenderDrawLine(renderer,
+		_transform.position.x,
+		_transform.position.y,
+		_transform.position.x + 10,
+		_transform.position.y + 10);
 }
-
-
-Player::Player() : GameObject() {}
