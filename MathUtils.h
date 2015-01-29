@@ -1,3 +1,10 @@
+/**
+ * \class MathUtils
+ * \brief A math library to aid students during class work.
+ * \author Justin Wilkinson
+ * \date January, 2015
+ */
+
 #pragma once
 
 // A structure to hold two floats. Similar to SDL_Point (though it contains ints).

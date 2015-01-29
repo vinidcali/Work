@@ -28,6 +28,12 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Asteroid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h">
@@ -46,6 +52,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroid.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

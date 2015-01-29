@@ -16,7 +16,7 @@ void GameEngine::Initialize() {
 
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
 
-	_window = SDL_CreateWindow("Vini's firstborn", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 640, SDL_WINDOW_SHOWN);
+	_window = SDL_CreateWindow("Vini's Firstborn - Terrible Edition!           ~~~    0", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 640, SDL_WINDOW_SHOWN);
 
 	_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
 	//two ways to render: accelerated (hardware) and software (and hardware doesnt sup a feature)
@@ -39,7 +39,7 @@ void GameEngine::Update() {
 
 void GameEngine::Draw() {
 	
-	SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 0);
 
 	SDL_RenderClear(_renderer);
 
