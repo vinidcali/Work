@@ -2,37 +2,43 @@
 #include <SDL.h>
 #include <stdlib.h>
 #include <time.h>
-//#include <stdio.h>
 
 
 Asteroid::Asteroid() : GameObject() {
-//	 _transform.position = { 400.0f, 400.0f, 0.0f };
-//	 _transform.position.x = 100.0f; _transform.position.y = 100.0f; _transform.position.z = 0.0f; 
 	
 }
 
 Asteroid::~Asteroid() {
-	//SDL_destroy
 }
 
 void Asteroid::Initialize() {
-	 srand (time(NULL));
-	_transform.position.x = rand() % 620 + 20;
-
-//	srand (time(NULL));
-	_transform.position.y = rand() % 620 + 20;
-
-
-//	printf("x: %d, y: %d\n\n", _transform.position.x, _transform.position.y);
+	 srand(time(NULL));
+	_transform.position.x = ((float(rand()) / float(RAND_MAX)) * (640 - -640)) + -640;
+	_transform.position.y = ((float(rand()) / float(RAND_MAX)) * (640 - -640)) + -640;
 }
 
 void Asteroid::Update(float dt) {
-	 srand (time(NULL));
-	int r = rand() % 620 + 20;
-	_transform.position.x += _transform.position.x >= 640 ? -640 : 100 * dt;
-	_transform.position.y += _transform.position.y >= 640 ? -640 : 100 * dt;
+//So here we got a whole bunch of random craziness because I was trying something and I think it worked!
+//Basically, the asteroids can change their minds midflight and go another way. Isn't that SUPER?!
+//However, they seem to be stuck to the same diagonal path, they just come and go that specific way.
+//I think it has to do with how random works (or the way I used it).
+	srand(time(NULL));
+	int r1, r2, rFinal;
+	int posOrNeg = rand() % 2 == 0 ? 1 : -1;
+	
+	r1 = ((float(rand()) / float(RAND_MAX)) * (300 - -300)) + -300;
+	r2 = ((float(rand()) / float(RAND_MAX)) * (r1 - r1)) + r1;
+	rFinal = ((float(rand()) / float(RAND_MAX)) * (r2 - r2)) + r2;
+
+	_transform.position.x += _transform.position.x >= 640 ? -640 : rFinal * posOrNeg * dt;
+
+	rFinal = ((float(rand()) / float(RAND_MAX)) * (rFinal - rFinal)) + rFinal;
+	_transform.position.y += _transform.position.y >= 640 ? -640 : rFinal * posOrNeg * dt;
 }
 
 void Asteroid::Draw(SDL_Renderer *renderer, float dt) {
-	SDL_RenderDrawPoint(renderer, _transform.position.x, _transform.position.y);
+	SDL_Rect *asteroid = new SDL_Rect;
+	asteroid -> x = _transform.position.x; asteroid -> y = _transform.position.y;
+	asteroid -> h = 20; asteroid -> w = 20;
+	SDL_RenderDrawRect(renderer, asteroid);
 }

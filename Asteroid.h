@@ -35,14 +35,14 @@ public:
 	 */
 	void Draw(SDL_Renderer *renderer, float dt);
 
-
-protected:
 	/**
 	* \fn		void Asteroid::Asteroid()
 	* \brief	Standard constructor for Asteroid.
 	*/
 	Asteroid();
 
+
+protected:
 	/**
 	* \fn		void Asteroid::~Asteroid()
 	* \brief	Standard deconstructor for Asteroid.

@@ -6,8 +6,7 @@
 
 
 Projectile::Projectile() : GameObject() {
-	 _transform.position.x = 0; _transform.position.y = 0; _transform.position.z = 0.0f; 
-	
+
 }
 
 Projectile::~Projectile() {
@@ -15,6 +14,7 @@ Projectile::~Projectile() {
 }
 
 void Projectile::Initialize() {
+	_transform.position.x = 0; _transform.position.y = 0; _transform.position.z = 0.0f; 
 	
 }
 
@@ -29,4 +29,10 @@ void Projectile::Draw(SDL_Renderer *renderer, float dt) {
 
 void Projectile::setPlayerPos(float x, float y) {
 	_transform.position.x = x; _transform.position.y = y; _transform.position.z = 0.0f; 
+}
+
+void Projectile::move(float dt) {
+	while ((250*dt) < 1000) {
+		Projectile::Update(dt);
+	}
 }

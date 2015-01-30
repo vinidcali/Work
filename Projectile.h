@@ -55,4 +55,12 @@ public:
 	 */
 	void setPlayerPos(float x, float y);
 
+	/**
+	 * \fn		void Projectile::move(float x, float y)
+	 * \brief	Tells the projectile it has been shot and needs to move.
+	 * \param	dt			The time in fractions of a second since the last pass.
+	 */
+	void move(float dt);
+
+
 };
